@@ -1,4 +1,4 @@
-# 📰 RSS Dietician
+# RSS Dietician
 
 > Read, group and automatically summarize your RSS feeds with an LLM.
 > Output: a navigable HTML digest, divided by news, grouping articles.
