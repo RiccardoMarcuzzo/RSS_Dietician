@@ -80,7 +80,7 @@ TELEGRAM_CHAT_ID=your-chatbot-chat-id
 ---
 
 ## How to install
-You can either cloning the repository or using a docker container
+You can either clone the repository or use a docker container.
 
 ### Cloning the repository
 
@@ -97,7 +97,7 @@ pip install -r requirements.txt
 python code/main.py
 ```
 
-The HTML is saved in `.newspaper/dietician_YYYY.MM.DD_HH.MM.html`.
+The HTML will be saved in `.newspaper/dietician_YYYY.MM.DD_HH.MM.html`.
 
 ### Docker
 
@@ -110,8 +110,7 @@ this docker-compose.yml file:
 ---
 services:
   rss-dietician:
-    image: rss-dietician:latest
-    build: .
+    image: snoopywritesstories/rss-dietician:latest
     container_name: rss-dietician
     env_file: .env
     volumes:
@@ -149,7 +148,7 @@ Now, run these commands:
 cd RSS_Dietician
 docker compose up -d
 ```
-
+The HTML will be saved in the volume provided. 
 
 ## Project structure
 
