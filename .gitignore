@@ -10,7 +10,6 @@ env/
 
 # Output (i digest generati non vanno in git)
 newspaper/
-model/
 
 # Secrets
 .env
