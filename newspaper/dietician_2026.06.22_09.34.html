@@ -1,0 +1,2650 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RSS Dietician – 22 June 2026, 09:34 UTC</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+
+  :root {
+    --ink:      #1a1209;
+    --paper:    #f5f0e8;
+    --sepia:    #c8a96e;
+    --rust:     #8b3a1a;
+    --muted:    #6b5d4f;
+    --rule:     #d4c4a8;
+    --card:     #fdfaf4;
+    --shadow:   rgba(60, 40, 10, .10);
+    --accent:   #2a4a6b;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ── Masthead ── */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 3.5rem 2rem 3rem;
+    border-bottom: 4px solid var(--sepia);
+  }
+  .masthead .tagline {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: .95rem;
+    color: var(--sepia);
+    letter-spacing: .08em;
+    margin-bottom: .9rem;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    letter-spacing: -.02em;
+    line-height: 1;
+  }
+  .masthead .meta {
+    margin-top: 1.1rem;
+    font-size: .82rem;
+    color: #a89070;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .masthead .meta span {
+    display: inline-block;
+    margin: 0 .6rem;
+  }
+  .masthead .meta .sep { color: var(--sepia); }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  /* ── Divisore ornamentale ── */
+  .ornament {
+    text-align: center;
+    color: var(--sepia);
+    font-size: 1.1rem;
+    letter-spacing: .5em;
+    margin: 2.5rem 0;
+    user-select: none;
+  }
+
+  /* ── Card notizia ── */
+  .news-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--sepia);
+    padding: 2rem 2.2rem 1.6rem;
+    margin-bottom: 2.4rem;
+    box-shadow: 0 2px 10px var(--shadow);
+    transition: box-shadow .2s;
+    position: relative;
+  }
+  .news-card:hover {
+    box-shadow: 0 6px 24px var(--shadow);
+  }
+
+  /* Numero progressivo */
+  .news-number {
+    position: absolute;
+    top: -1px;
+    right: 1.8rem;
+    background: var(--sepia);
+    color: var(--ink);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: .78rem;
+    letter-spacing: .1em;
+    padding: .2rem .7rem;
+    text-transform: uppercase;
+  }
+
+  .news-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    padding-right: 3rem;
+  }
+
+  .news-summary {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #3a2e22;
+    font-style: italic;
+    border-left: 3px solid var(--rule);
+    padding-left: 1.1rem;
+    margin-bottom: 1.4rem;
+  }
+
+  /* ── Lista fonti ── */
+  .sources-label {
+    font-size: .72rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .5rem;
+    font-style: normal;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+  }
+
+  .articles-list {
+    border-top: 1px solid var(--rule);
+    padding-top: .75rem;
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+  }
+
+  .article-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: .8rem;
+    font-size: .875rem;
+    text-decoration: none;
+    color: var(--rust);
+    padding: .2rem 0;
+    border-bottom: 1px dashed transparent;
+    transition: border-color .15s, color .15s;
+    font-style: normal;
+  }
+  .article-link:hover {
+    color: var(--ink);
+    border-bottom-color: var(--rule);
+  }
+  .article-link .art-title { flex: 1; }
+  .article-link .art-meta {
+    font-size: .75rem;
+    color: var(--muted);
+    white-space: nowrap;
+    font-style: italic;
+    flex-shrink: 0;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 2.5rem 1rem 3rem;
+    font-size: .8rem;
+    color: var(--muted);
+    border-top: 2px solid var(--rule);
+  }
+  footer .footer-rule {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--sepia);
+    margin-bottom: .6rem;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .masthead h1 { font-size: 2.6rem; }
+    .news-card { padding: 1.3rem 1.2rem 1.1rem; }
+    .article-link .art-meta { display: none; }
+    .news-title { font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <p class="tagline">Your curated news diet</p>
+  <h1>RSS Dietician</h1>
+  <p class="meta">
+    <span>22 June 2026, 09:34 UTC</span>
+    <span class="sep">·</span>
+    <span>57 news</span>
+    <span class="sep">·</span>
+    <span>105 articles</span>
+  </p>
+</header>
+
+<main class="container">
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 1</span>
+
+    <h2 class="news-title">Russian Forces Infiltrate Kostyantynivka, Threatening to Isolate Ukraine's Eastern Strongholds</h2>
+
+    <p class="news-summary">Russian forces have infiltrated the strategic city of Kostyantynivka in eastern Ukraine, placing the city in a "grey zone" and threatening to surround it. This development could allow Russian forces to push towards Ukraine's last remaining strongholds in the east, Kramatorsk and Sloviansk, and move closer to seizing the Donbas region, one of the Kremlin's key objectives in the war.
+
+Despite months of stalled warfare along the front line, Russian troops have managed to advance in Kostyantynivka from the south and even been spotted on the city's northern outskirts. Ukrainian officials acknowledge there are about 130 Russian soldiers inside the city, but deny that the situation is out of control.
+
+The situation appears more serious than Ukrainian officials are ready to admit publicly. Russian forces have found a way to advance inside the "kill zone" where Ukrainian drones can detect any movement and instantly attack. The Ukrainian drone pilot warns that the fall of Kostyantynivka is a "matter of time," and once it happens, logistical operations in the area will become more complicated, making remaining in Kramatorsk "extremely dangerous.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/22/world/europe/ukraine-donetsk-donbas-sloviansk-kramatorsk-russia.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Thousands Are Fleeing Ukraine’s Donbas Strongholds as Russia Pushes Closer</span>
+        <span class="art-meta">
+          rss.nytimes.com · 22/06 09:09
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c9w2g0ewk95o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Russian troop build-up threatens city seen as key to seizing Ukraine's Donbas</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 23:57
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 2</span>
+
+    <h2 class="news-title">Taiwanese Atemoyas: Fruit at the Heart of Sino-Taiwanese Trade Tensions</h2>
+
+    <p class="news-summary">The atemoya, a unique fruit native to Taiwan, has become the latest potential flashpoint in the ongoing tensions between China and Taiwan. China, a major importer of Taiwanese atemoyas, has pledged to increase its purchases of the fruit, sparking fears among Taiwanese farmers that Beijing may be employing economic coercion. The Taiwanese agriculture ministry has warned that China's actions resemble a "classic example" of the "raise, trap, kill" process, where Beijing creates reliance before leaving farmers vulnerable to market changes. This comes after China banned the import of Taiwanese pineapples in 2021, causing significant disruption to farmers' livelihoods. The growing debate over the export of Taiwanese atemoyas has led to tensions between the Taiwanese government and opposition politicians, with some arguing that the issue is being politicized and could harm the island's farmers.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cwy05neqy7wo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">China's import of custard apples is sparking fears in Taiwan</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 22/06 04:37
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 3</span>
+
+    <h2 class="news-title">Generic Bangladeshi Trikafta Copy Gains Ground, but FDA Warns of Unproven Safety and Efficacy</h2>
+
+    <p class="news-summary">The generic version of the breakthrough cystic fibrosis drug Trikafta, manufactured in Bangladesh, has been priced at a fraction of the American cost, offering hope to patients worldwide. This development comes through a legal loophole that allows the drug to be sold in the U.S. without the manufacturer's permission, as long as it is not marketed under the same name. The generic drug, produced by Beximco Pharmaceuticals, is expected to cost around $2,000 per month, compared to the $311,000 price tag for Trikafta in the U.S. This price difference could make the treatment accessible to more patients who have been unable to afford the high-cost drug. However, the FDA has warned that the generic version may not be as thoroughly tested as the original drug, and its safety and efficacy are not guaranteed. Patients and doctors are advised to exercise caution when considering this option.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/22/health/cystic-fibrosis-drug-triko-trikafta.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">A Loophole Brings Cystic Fibrosis Patients a ‘Miracle Drug’ in Generic Form</span>
+        <span class="art-meta">
+          rss.nytimes.com · 22/06 09:01
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 4</span>
+
+    <h2 class="news-title">Starbucks South Korea Closes Early, Conducts Staff Training After Chaotic "Tank Day" Promotion</h2>
+
+    <p class="news-summary">South Korea's Starbucks locations closed early on Monday following a chaotic "Tank Day" promotion that led to widespread confusion and customer dissatisfaction. In response, the company decided to shut down all stores for a mandatory staff training session. This move comes after the "Tank Day" event, which offered customers a free Frappuccino when they brought in a 350ml cup, backfired as customers misinterpreted the promotion, leading to long lines and overcrowded stores. Starbucks aims to address the issues and improve customer experience through the franchise-wide training.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/22/world/asia/south-korea-starbucks-tank-day-controversy-closure.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">South Korea’s Starbucks Shut Early After ‘Tank Day’ Promotion Debacle</span>
+        <span class="art-meta">
+          rss.nytimes.com · 22/06 09:03
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 5</span>
+
+    <h2 class="news-title">Cuban Schools Close Early Amid US-Imposed Fuel Crisis</h2>
+
+    <p class="news-summary">The Cuban government has announced that schools across the island nation will close early this academic year due to an ongoing fuel crisis. The crisis has been exacerbated by the U.S. oil blockade, which has severely limited Cuba's access to fuel supplies. This has had a profound impact on the country's transportation and power infrastructure, including schools.
+
+The fuel shortage has made it impossible for schools to maintain their normal operations, including transportation for students and staff. Many schools have been forced to rely on outdated generators that are unable to meet the energy demands of modern educational facilities. This has led to frequent power outages and a lack of access to essential resources like water and sanitation.
+
+The early closure of schools has left many families struggling to find alternative childcare arrangements and has raised concerns about the impact on students' education. The Cuban government has vowed to address the issue and is working to find alternative solutions to the fuel crisis. However, the long-term effects of the U.S. oil blockade on Cuba's education system remain to be seen.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/22/world/americas/cuba-oil-gas-crisis-schools-education.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Cuba’s Fuel Crisis Brings Schools to a Standstill</span>
+        <span class="art-meta">
+          rss.nytimes.com · 22/06 09:02
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 6</span>
+
+    <h2 class="news-title">Tacloban School Massacre: Ninth Graders' Gunfire Claims Lives</h2>
+
+    <p class="news-summary">Deadly School Shooting in the Philippines: Two Ninth Graders Arrested
+By [Author], [Date]
+
+A devastating school shooting occurred on Monday morning in Tacloban City, Philippines, leaving three people dead and seven injured. The culprits behind the tragedy were identified as two ninth-grade students who opened fire at their school. The police have since arrested the two boys involved in the incident. The shooting has sparked outrage and prompted discussions on the need for stricter gun control measures and improved security in educational institutions across the country.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/22/world/asia/philippines-school-shooting-tacloban.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Two Boys Arrested After Deadly School Shooting in the Philippines</span>
+        <span class="art-meta">
+          rss.nytimes.com · 22/06 08:26
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 7</span>
+
+    <h2 class="news-title">Largest Cocaine Bust in Australian History: 2.7 Tonnes Seized, Six Arrested, "Mother Vessel" Detained</h2>
+
+    <p class="news-summary">The Australian Federal Police have made the largest ever cocaine bust in the country's history, seizing 2.7 tonnes of the drug with an estimated street value of A$816 million. The cocaine was discovered in an underground bunker system in western Sydney, concealed beneath false floors in three shipping containers at a property in Londonderry. Two men, aged 21 and 25, were arrested at the scene and charged with possessing a commercial quantity of unlawfully imported cocaine. The drugs were smuggled into Australia via Midge Point in North Queensland on the orders of an organized crime group. Another six people were arrested and charged in Queensland and New South Wales as part of investigations sparked by the find, and an alleged "mother vessel" suspected of being part of the smuggling operation has been detained in Solomon Islands. Australians and New Zealanders have the highest cocaine use rates in the world, according to the UN World Drug Report. The Australian Federal Police are continuing investigations into the origin of the drugs and working with international and domestic law enforcement partners to identify criminal syndicates and others involved in the alleged drug import.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c14ygjzr8j7o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Largest ever cocaine bust in Australia after police raid underground bunker</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 22/06 01:40
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 8</span>
+
+    <h2 class="news-title">Japan's Visa Fee Hike Hits Indian Students Amid Currency Turmoil</h2>
+
+    <p class="news-summary">Japan Raises Visa Fees Amid Currency Weakness, Indian Students Feel the Pinch
+Japan's decision to quintuple its visa fees has sent ripples through the international education market, particularly affecting Indian students planning to study abroad. The first price hike in nearly 50 years, from 3,000 yen to 15,000 yen for a single-entry visa, and from 6,000 yen to 30,000 yen for multi-entry visas, is set to take effect on July 1st. The move, aimed at "reflecting inflation and exchange rate fluctuations," comes as the Japanese yen hovers near historic 40-year lows and the country welcomes a record 42.7 million international tourists last year.
+
+Meanwhile, Indian students face their own set of challenges. A weakening currency has significantly increased the cost of studying abroad, with the Indian rupee depreciating by more than 10% against the US dollar in the last year. This has forced many students to reconsider their plans, with some even dropping out of their programs. The situation is further complicated by stricter visa requirements and immigration crackdowns in major study destinations like the US and UK, leading to a decline in enrolment numbers.
+
+Despite these challenges, the demand for foreign education remains strong, with India remaining one of the largest sources of international students for countries like the US and UK. However, the combination of a depreciating currency, job market concerns, visa issues, and political policies has created a "perfect storm" for students and universities alike. As countries like Germany, Ireland, and Italy attract more Indian students with lower tuition costs and favorable post-study work pathways, the future of international education remains uncertain.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cy8d5e5e805o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Japan quintuples visa fees in first price hike since 1978</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 22/06 03:45
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c8x2gd9lkxzo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Currency crash and visa crackdowns force Indian students to rethink studying abroad</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 21:55
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 9</span>
+
+    <h2 class="news-title">**Germany's Coal Dilemma: Balancing Energy Transition, Supply Security Amid Global Shifts**</h2>
+
+    <p class="news-summary">Germany's Coal Conundrum: Balancing Energy Transition with Supply Security
+Germany, the fourth-largest coal consumer globally, faces a pivotal decision regarding its coal-powered electricity as it navigates the delicate balance between energy transition and supply security. The country has pledged to phase out coal by 2038, with lignite phase-out brought forward to 2030. Currently, coal supplies 20% of Germany's power generation, with renewables accounting for over 59% last year.
+
+The recent surge in global gas prices has prompted Germany to reconsider its coal strategy, particularly as it seeks to replace coal with natural gas power stations, which emit half as much carbon dioxide. However, Germany's reliance on imported natural gas and its abundant, cheap lignite reserves complicates the decision-making process.
+
+The German government is studying the possibility of allowing six coal power stations that use imported hard coal to operate more frequently. This move aims to strengthen energy supply and affordability, addressing concerns from industry leaders who emphasize the need for reliable and competitively priced energy for investment.
+
+The debate intensifies as the government must decide this year whether to maintain the 2030 deadline for lignite phase-out or allow some capacity to be maintained for strategic reserves. A statutory review in August will further inform the government's decision, potentially slowing down the coal phase-out. The challenge lies in reconciling the need for energy transition with the imperative of supply security and affordability, as Germany grapples with the complex interplay of environmental, economic, and political considerations.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cy04ykxrj5eo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Is Germany looking again at coal-powered electricity?</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 23:27
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 10</span>
+
+    <h2 class="news-title">Heatwave Scorches France: Over Half of Country Under Red Alert as Temperatures Soar</h2>
+
+    <p class="news-summary">More than half of France is under a red heatwave alert as the country braces for sweltering temperatures due to an intensifying heatwave. Forty-nine of France's 96 regions are under a red heat alert, with highs of more than 40°C (104°F) expected across parts of western France on Monday. The mercury is expected to hit 43°C in Bordeaux, according to weather forecaster Météo-France. Some 845 schools have been shut for the day, and a further 1,800 are allowing pupils to finish classes early, according to the ministry of education. In the south-west Gironde region, local authorities reported that three people, aged between 80 and 95 years, had died, partly due to the intense heat. Health Minister Stéphanie Rist warned that many people will suffer during the hot weather and called on people to keep a close eye on relatives and neighbors. The heatwave is expected to be widespread, long-lasting, and intense, with temperatures not expected to drop until the end of the week. Parisians have been seeking respite from the heat by taking a dip in the Canal St Martin.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c0jy9g96086o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">More than half of France under red alerts as heatwave intensifies</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 22/06 07:17
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/videos/c802denngxeo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Parisians cool off in canal amid 'red alert' heatwave</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 17:15
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 11</span>
+
+    <h2 class="news-title">FIFA President Infantino Courts Trump, Raising Questions on FIFA's Neutrality and US Ties</h2>
+
+    <p class="news-summary">FIFA President Gianni Infantino has been making headlines for his unprecedented attempts to win over US President Donald Trump. Infantino's actions have raised eyebrows and sparked debates about the future of FIFA and its relationship with the United States. In a recent interview, Infantino openly expressed his admiration for Trump and his administration, a move that is unusual for a FIFA president. This move comes as Infantino seeks to strengthen FIFA's ties with the US, a country that has been a key player in the world of football. However, critics argue that Infantino's actions could have a negative impact on the organization's neutrality and integrity. The situation remains complex, with Infantino's decision to court Trump's favor putting FIFA's relationship with the US in the spotlight.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/infantino-trump-fifa-iran-talks.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">The Man Trumpifying FIFA</span>
+        <span class="art-meta">
+          rss.nytimes.com · 22/06 04:39
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 12</span>
+
+    <h2 class="news-title">De La Espriella's Narrow Victory in Colombia Marks Rightward Shift, Sets Stage for Changed Approach to Internal Conflict</h2>
+
+    <p class="news-summary">Abelardo De La Espriella, a right-wing candidate backed by former U.S. President Donald Trump, has narrowly won Colombia's presidential election, according to an initial vote count. De la Espriella, a lawyer and businessman with no prior political experience, secured nearly 49.7% of the vote, while left-wing candidate Iván Cepeda, a close ally of outgoing President Gustavo Petro, received 48.7% of the vote. The victory marks another rightward shift in Latin America and sets the stage for a potential change in how Colombia addresses its internal armed conflict and violence. De la Espriella has pledged a military crackdown on illegal armed groups, drug trafficking, and crime, contrasting with Cepeda's approach that prioritized negotiation with armed groups. The initial count has not yet been officially certified, and Cepeda has not conceded, stating that the preliminary count is "not yet official or binding." The verification process following the initial count is expected to determine the final outcome of the closely contested election.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/americas/colombia-election-de-la-espriella.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Abelardo De La Espriella, Trump-Backed Rightist, Headed for Win in Colombia</span>
+        <span class="art-meta">
+          rss.nytimes.com · 22/06 08:04
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/clye4ky2yzpo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Trump-backed political outsider wins Colombia election, initial count shows</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 22/06 03:31
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/americas/colombia-election-cepeda-espriella.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Colombia’s High-Stakes Election: What to Know About the Candidates, Issues and Expected Results</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 09:01
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cvgqv8q1ndpo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Colombia's escalating, brutal internal conflict is defining its presidential election</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 23:17
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/americas/colombia-election-abelardo-de-la-espriella.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Abelardo De La Espriella, Right-Wing Outsider, Could Be Colombia’s Next President</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 14:22
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/americas/ivan-cepeda-colombia-president-election.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Trump Called Iván Cepeda a ‘Radical Left Marxist.’ Can He Be Colombia’s President?</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 09:00
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 13</span>
+
+    <h2 class="news-title">I'll wait for an updated summary to generate a headline from. Just send over the article excerpt when you're ready!</h2>
+
+    <p class="news-summary">It seems like there are no articles provided for me to write a summary about. Could you please provide the full text of the articles you'd like me to summarize?</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/live/2026/06/22/world/uk-keir-starmer-resign/britain-starmer-pressure-to-resign"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Here’s the latest.</span>
+        <span class="art-meta">
+          rss.nytimes.com · 22/06 09:07
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/live/2026/06/21/world/iran-us-trump-lebanon/heres-the-latest"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Here’s the latest.</span>
+        <span class="art-meta">
+          rss.nytimes.com · 22/06 08:14
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/live/2026/06/20/world/iran-trump-israel-lebanon/heres-the-latest"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Here’s the latest.</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 21:19
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 14</span>
+
+    <h2 class="news-title">TRUMP MOVES TO ADDRESS GREEN POOL CONTROVERSY: REPAIRS BEGIN, ARRESTS MADE</h2>
+
+    <p class="news-summary">President Donald Trump has announced that repairs to the algae-plagued Reflecting Pool in Washington D.C. will begin immediately. Despite a recent $13 million renovation, including a fresh coat of blue paint, the historic structure continues to face issues with algae turning the water a bright shade of green. Trump claims the pool's paint has been marred by vandals ahead of the 250th anniversary of the country's 4th of July independence day. Five people have been arrested for vandalism and five more were issued with citations by police. A former US Olympian, David "Davey" Hearn, has been arrested for allegedly vandalising the pool but denies he did anything wrong, saying he only touched the peeling paint to investigate its condition. The pool may need to be drained and refilled for a second time this month, according to Trump. US Attorney for Washington DC Jeanine Pirro has vowed to aggressively prosecute anyone found to have damaged the pool.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c872e8d9el1o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Trump says repairs to algae-plagued Reflecting Pool will begin immediately</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 22/06 00:54
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c8d26051vv2o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Former Olympian denies vandalising Washington Reflecting Pool after arrest</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 07:16
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 15</span>
+
+    <h2 class="news-title">US and Iran Reach Tentative Agreement on Roadmap to End Conflict in Lebanon and Ease Sanctions, Amid Ongoing Challenges</h2>
+
+    <p class="news-summary">The first round of US-Iran talks ended with "encouraging progress," according to mediators Qatar and Pakistan. A "High Level Committee" agreed to a roadmap towards reaching a final deal within 60 days. Iran's foreign minister Seyed Abbas Araghchi said there had been "major progress" towards ending the conflict in Lebanon. The memorandum of understanding (MoU) includes a commitment to ending the fighting on "all fronts" - including Lebanon - and the reopening of the Strait of Hormuz. The US and Iran have also agreed to the creation of a "de-confliction cell" between the US, Iran and Lebanon, facilitated by the mediating countries, to end military operations in Lebanon. Both sides have committed to discussing sanctions relief and the shape of a reconstruction fund, as well as Iran's nuclear program. Iran's immediate obligations are significant but relatively limited, while the US commitments appear broader, including the lifting of the US naval blockade, issuing waivers for Iranian oil exports, making frozen or restricted Iranian assets available, and pursuing a reconstruction and economic development plan for Iran worth at least $300bn. However, the MoU leaves many details for future negotiations, and neither the war nor the agreement have terminated the main threats emanating from Iran.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cwy0q41v1lzo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">First round of US-Iran talks ends with encouraging progress, mediators say</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 22/06 08:27
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/middleeast/iran-peace-talks-switzerland.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">U.S. and Iranian Officials to Meet for Peace Talks in Switzerland</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 23:49
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/middleeast/israel-lebanon-hezbollah-fighting.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Israel Directs Its Military to Limit Its Actions in Lebanon, but Tensions Persist</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 20:57
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/middleeast/vance-iran-talks-trump.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">As Vance Offers Iran ‘Outstretched Hand’ in Talks, Trump Threatens Bombing</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 17:04
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/us/iran-us-peace-deal-nuclear-program-threats.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Neither the War Nor Trump’s Deal Terminated the Main Threats in Iran, Analysts Say</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 17:03
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/middleeast/us-iran-negotiations-issues.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">U.S. and Iran Have Plenty to Negotiate Beyond Nuclear Issues</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 15:58
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/middleeast/three-men-are-key-to-irans-approach-to-us-talks.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Three Men Are Key to Iran’s Approach to U.S. Talks</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 13:42
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/middleeast/iran-nuclear-talks-questions.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Iran Nuclear Talks Expected to Hinge on These 4 Questions</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 09:56
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/europe/switzerland-resort-us-iran-meeting.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">A Glamorous Swiss Resort Hosts Officials for U.S.-Iran Talks</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 09:34
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/videos/c8r2pyv3e2po?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">BBC sees destroyed villages in Israeli-occupied southern Lebanon</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 16:37
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/middleeast/israel-hezbollah-fighting-cease-fire.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Israel and Hezbollah Are Still Fighting, Several Cease-Fires Later</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 15:43
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/europe/world-iran-reaction.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">World Leaders Awaited Iran Deal for Months. Here’s Why They’re Still Wary.</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 09:02
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/19/world/middleeast/lebanon-us-iran-deal-ceasefire.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Lebanon Emerges as Weak Link in U.S.-Iran Deal to End War</span>
+        <span class="art-meta">
+          rss.nytimes.com · 19/06 22:31
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/19/world/middleeast/lebanon-ceasefire-iran-truce.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Lebanon Cease-Fire Bolsters U.S.-Iran Truce, After a Shaky Start</span>
+        <span class="art-meta">
+          rss.nytimes.com · 19/06 20:00
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cy735xlv50ko?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Thousands killed in US-Israeli war on Iran - but experts say true total may never be known</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 19/06 05:33
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c932yqz8lggo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">What Iran and US get from deal and why both could struggle to keep it</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 18/06 20:04
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c74ynmnrwmeo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Weapons, money and ships: How is this Iran deal different from others?</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 18/06 14:16
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/videos/crm03y1xx2no?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Moment Trump signs US-Iran agreement at Palace of Versailles</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 18/06 01:59
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cgmd8dgklzzo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">US-Iran deal leaves core sticking points unresolved - and a $300bn question</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 18/06 01:29
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 16</span>
+
+    <h2 class="news-title">Drone Attacks on Moscow Refinery Trigger Friendly Fire Concerns and Economic Turmoil</h2>
+
+    <p class="news-summary">A series of drone attacks on Moscow's oil refinery has brought Russia's war with Ukraine closer to home for residents of the capital. The refinery attack, one of the largest aerial assaults on the Moscow region since the full-scale invasion of Ukraine, has raised concerns about the impact of long-range Ukrainian strikes on the Russian economy. The refinery blast may have been caused by friendly fire, according to video footage that shows a Russian air defense missile traveling towards the fuel silo, which erupts in an explosion around the time of its arrival. The incident has increased pressure on the Russian economy, with petrol shortages and rationing reported in some parts of the country and rising prices at the pumps. Russian officials have accused the West of prolonging the war in Ukraine, blaming European leaders and NATO for supporting Kyiv. However, President Vladimir Putin has remained silent on the issue, with news bulletins on Russian TV channels barely mentioning the attack.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/22/world/middleeast/qatar-explosion-gas.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Explosion at Qatar Gas Plant Leaves at Least 54 Injured</span>
+        <span class="art-meta">
+          rss.nytimes.com · 22/06 08:58
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/19/world/europe/russia-moscow-missile-refinery.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Moscow Refinery Blast May Have Been Caused by Friendly Fire, Video Suggests</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 16:50
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cp3xqkxp3x5o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Steve Rosenberg: Moscow oil refinery attack brings Russia's war with Ukraine closer to home</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 10:19
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 17</span>
+
+    <h2 class="news-title">BTS Fans Scammed Out of $100K in Southeast Asia as Gorillaz Stage Global Stadium Show</h2>
+
+    <p class="news-summary">BTS fans in Southeast Asia have lost over $100,000 to scammers cashing in on the demand for the K-pop group's comeback tour tickets. Desperate fans in the region have become easy targets as scammers infiltrate fan groups online, promising exclusive access or lower prices. Once money changes hands, they vanish. Some even offer "power of attorney forms" to convince targets the tickets are authentic. In Thailand, lawmakers are hearing a complaint by 126 fans who were duped by an offer to help them "wait in line" for tickets.
+
+Meanwhile, Gorillaz staged their first-ever stadium show at Tottenham Hotspur Stadium, featuring a diverse lineup of musicians from 15 different countries. The concert showcased a multicultural, multimedia pop extravaganza with more guests than a double-booked Airbnb. Damon Albarn, the band's leader, expressed his openness and humility, setting the tone for the whole entourage. The show aimed to reveal what it takes to put on a show like this, with a documentary planned to capture the human musicians mingling with their cartoon counterparts. The concert highlighted the importance of cross-cultural understanding and the exploration of the world through music.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cdr45nrr2jyo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">The BTS fans losing thousands as scammers cash in on comeback tour ticket war</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 23:44
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cm203gndx0lo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Backstage at Gorillaz' epic, one-off stadium show: 'The vibe is ridiculous'</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 01:14
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 18</span>
+
+    <h2 class="news-title">Abiy's Landslide Victory Clouded by Conflict and Accusations Ahead of Tense October Inauguration</h2>
+
+    <p class="news-summary">Ethiopia's Prime Minister Abiy Ahmed's party, the Prosperity Party, secured a landslide victory in the country's general election, winning 438 out of the 501 contested seats. This victory is set to solidify Abiy's position as he is expected to be sworn in for another term in October. However, the election has been overshadowed by conflict, accusations of repression, and low participation by opposition parties.
+
+Despite the win, concerns are growing about the potential for new conflicts within Ethiopia, given the ongoing internal divisions and security challenges. The country faces violent and deadly insurgencies in its Amhara and Oromia regions, and there are fears that the situation could escalate into regional conflict, particularly in the Tigray region.
+
+The Tigray region, which was completely excluded from the poll, is still recovering from a two-year civil war that ended in 2022. There are rising fears that fighting could break out again, with both sides accusing each other of violating the peace deal signed in November 2022. The conflict was one of the most deadly this century, with an estimated 600,000 people having died.
+
+The election day saw 143 polling stations fail to open in the country's two most populous regions due to safety concerns caused by armed groups fighting the government. The Fano militias in Amhara and the Oromo Liberation Army (OLA) in Oromia, which both want greater autonomy, rejected the election and its results.
+
+The European Union has issued a warning, calling for "an immediate de-escalation" in northern Ethiopia, while the US has announced targeted visa restrictions on "hardline members of the TPLF and their immediate family members." Analysts are concerned that the continuing low-level tension could escalate into a regional conflict centered on Tigray, given the polarized and poisonous regional politics.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cz750q5e3w3o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Ethiopia PM's party wins landslide as fears grow of new conflict</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 15:01
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 19</span>
+
+    <h2 class="news-title">Cape Verde Writes World Cup History with Landmark Goal, Fan's Joyous Reactions Ignite Worldwide Cheer</h2>
+
+    <p class="news-summary">Cape Verde's historic World Cup campaign took a thrilling turn as the island nation scored its first-ever goal in the tournament against Uruguay. Amid the excitement, a Cape Verdean fan's exuberant reaction was caught live on BBC News, capturing the essence of the moment for viewers worldwide. The fan's joyous outburst came as the team's remarkable performance continued, with veteran goalkeeper Vozinha playing a pivotal role in keeping Cape Verde's dreams alive against soccer powerhouses like Spain. This milestone goal against Uruguay further underscores the underdog team's impressive showing in the 2026 World Cup, making it a story to watch as Cape Verde continues to defy expectations on the global stage.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/sport/football/videos/cyv0n4g6p77o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Cape Verde fan goes wild live on BBC News as his country scores</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 23:53
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/africa/cape-verde-world-cup-uruguay.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Cape Verde Will Count on Vozinha Against Uruguay at the World Cup</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 23:31
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 20</span>
+
+    <h2 class="news-title">Millions Take Rescheduled NEET-UG Amid Tight Security Following Paper Leak Scandal</h2>
+
+    <p class="news-summary">In a bid to prevent a repeat of the alleged paper leak scandal, millions of Indian medical students sat for a rescheduled National Eligibility cum Entrance Test (NEET-UG) under heightened security measures. The initial exam, held on May 3, was canceled after allegations of leaked questions. This time, exam centers were equipped with biometric identification, metal detectors, and security cameras, while the Indian Air Force transported test papers to some regions. The National Testing Agency (NTA) also blocked the messaging app Telegram and employed 39,000 frisking staff across the country. Despite these measures, some students expressed concern that the exam could still be compromised. The NEET-UG is a crucial exam for students seeking to join medical colleges in India, with only a small percentage securing coveted college placements. The alleged paper leak sparked widespread protests and calls for Education Minister Dharmendra Pradhan to resign. The NTA has advised students to ignore rumors and fake "paper leak" messages circulating on social media, stating they are designed to mislead and cause stress.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cwy0gjqv783o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Tight security as Indian students resit medical exam after alleged paper leak</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 11:06
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 21</span>
+
+    <h2 class="news-title">Vaibhav Sooryavanshi Smashes World Record with 50 in 11 Balls, Eager for International Debut</h2>
+
+    <p class="news-summary">In a stunning display of cricket prowess, 15-year-old Indian cricketer Vaibhav Sooryavanshi has shattered records by scoring a 50 in just 11 balls during an India A match against Sri Lanka A. Sooryavanshi's performance, which included 10 fours and eight sixes, surpassed the previous fastest half-century in List A 50-over cricket, originally set by Thisara Perera with a 13-ball knock. This remarkable feat came on the same day Sooryavanshi was not selected for India's one-day international squad against England. However, he has been named in the T20 side for matches against Ireland and England, potentially paving the way for his international debut. The first T20 match against Ireland is scheduled for June 26, followed by a series against England starting July 1.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/sport/cricket/articles/czdev6lp8p9o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Indian cricketer, 15, hits record-breaking 50 in just 11 balls</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 11:10
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 22</span>
+
+    <h2 class="news-title">Ukraine's Fuel Attacks Cut Off Crimea: President Defends Aerial Blitz Amid Escalating Conflict and Logistics Nightmare in Annexed Peninsula</h2>
+
+    <p class="news-summary">Fuel sales have been suspended in the Russian-occupied Crimean Peninsula due to ongoing attacks by Ukraine targeting oil facilities in the region. The move comes as Ukraine continues its campaign against supply routes in Russian-occupied territories, leading to fuel rationing and now a complete halt in sales to the public. Only government agencies ensuring Crimea's "functioning and security" will be allowed to purchase fuel. Ukraine's President Volodymyr Zelensky has defended the attacks, stating they are a "just response to Russia's brutal attacks." Crimea, which was annexed by Russia in 2014, has been experiencing logistical difficulties and shortages, with the suspension of fuel sales marking one of its most significant restrictions yet. Meanwhile, both sides have escalated attacks in recent months as progress towards a ceasefire has stalled, with Ukraine focusing on disrupting Russia's fuel exports and undermining the Russian war effort.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/clyx2lk9d15o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Fuel sales halted in occupied Crimea as Ukraine targets oil facilities</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 10:55
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/19/world/europe/russia-moscow-missile-refinery.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Moscow Refinery Blast May Have Been Caused by Friendly Fire, Video Suggests</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 16:50
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cp3xqkxp3x5o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Steve Rosenberg: Moscow oil refinery attack brings Russia's war with Ukraine closer to home</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 10:19
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 23</span>
+
+    <h2 class="news-title">Royal Dutch Family Roots for Two Teams in World Cup Doubleheader</h2>
+
+    <p class="news-summary">Today, the Dutch royal family had a double dose of World Cup excitement as they witnessed victories for both the Netherlands and Curacao. King Willem-Alexander, Queen Maxima, and Princess Ariane cheered on the Dutch team to a 5-1 win over Sweden in Houston. Later that day, they traveled 800 miles north to Kansas City to see Curacao earn their first ever World Cup point against Ecuador. The Netherlands and Curacao both have players born in the other country, making the royal family's support extra special. Queen Maxima, who is from Argentina, may also cheer on the holders' match against Austria if she visits Arlington, Texas on Monday. Curacao, a small island with a population of 158,000, is part of the Kingdom of the Netherlands, along with Indonesia, South Africa, and West Papua. The Dutch royal family's attendance at both games highlights the unique connection between the two teams.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/sport/football/articles/c4gydq973nqo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Dutch royals enjoy two big results in one World Cup day</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 21/06 09:45
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/live/2026/us/fifa-world-cup/canadas-postcard-moment-at-the-world-cup-is-more-than-the-teams-victory"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Canada’s postcard moment at the World Cup is more than the team’s victory.</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 18:47
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 24</span>
+
+    <h2 class="news-title">Netanyahu and Starmer Face Unprecedented Challenges Amidst Shifting Political Realities</h2>
+
+    <p class="news-summary">In a recent turn of events, Prime Minister Benjamin Netanyahu faces one of the most significant challenges of his political career. The Israeli leader, known for his close ties with former U.S. President Donald Trump, now finds himself navigating a new political landscape without his key ally. As Trump's absence from the political scene removes a crucial support pillar, Netanyahu is set to enter the upcoming fall election with a new set of challenges.
+
+Meanwhile, pressure continues to mount on UK Labour Party leader Keir Starmer. An ally of Starmer's has revealed that the leader is taking time to reflect on the "political realities" amidst calls for his resignation. The ally spoke to the BBC, stating that Starmer is "taking the time to think through what the political realities are today compared to last week."
+
+These developments highlight the unique challenges faced by political leaders in an ever-changing global environment. As Netanyahu and Starmer navigate their respective political situations, they are forced to adapt to new realities and find new strategies to maintain their leadership positions.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/europe/keir-starmer-andy-burnham-uk.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Keir Starmer Reflects on ‘Political Challenges’ as Pressure to Resign Mounts</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 16:23
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/middleeast/netanyahu-iran-deal-trump.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Netanyahu faces one of the biggest challenges of his career.</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 15:30
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 25</span>
+
+    <h2 class="news-title">Princess of Wales Joins UK in Addressing Digital Screen Concerns: Debate Simmers on Global Social Media Bans for Youth</h2>
+
+    <p class="news-summary">In recent news, Catherine, Princess of Wales, has voiced concerns over the increasing role of digital screens in children's lives, publishing an essay that warns against a childhood "mediated by screens." This comes just days after the United Kingdom announced a ban on social media for children under the age of 16. The UK government plans to provide an update on further restrictions, potentially including curfews and the curbing of "addictive" features like infinite scroll and AI chatbots, in July.
+
+The topic has sparked a debate on whether the United States should follow suit and impose a similar ban on teen social media usage. The BBC recently spoke to Americans of various ages to gauge their opinions on the matter. Some expressed support for a potential US ban, citing the potential benefits for mental health and overall well-being of young people. However, others argued that such a ban could limit access to important resources and information, and that parents should be responsible for monitoring their children's screen time and online activities.
+
+Meanwhile, Welsh radio host Elis James has taken a lighthearted approach to the issue, challenging himself to prove that he has a friend in common with just about everyone else in Wales. In a 60-second segment, James attempts to connect with listeners through shared acquaintances, showcasing the power of personal connections in a digital age.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/22/world/europe/elis-james-wales-radio.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Does This Radio Host Really Know Everyone in Wales?</span>
+        <span class="art-meta">
+          rss.nytimes.com · 22/06 04:05
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/19/world/europe/princess-kate-uk-children-social-media-ban.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Catherine, Princess of Wales Questions Digital Screens’ Role in Children’s Lives</span>
+        <span class="art-meta">
+          rss.nytimes.com · 19/06 17:49
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/videos/c5yzgxd428qo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Should the US impose a teen social media ban like the UK?</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 18/06 14:45
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 26</span>
+
+    <h2 class="news-title">Massive Fire at Dominican Resort Tragically Claims Italian Tourist, Evacuates 1,700 Guests</h2>
+
+    <p class="news-summary">A massive fire engulfed the Viva Wyndham Dominicus Beach resort in the Dominican Republic on Friday, resulting in the tragic death of a 46-year-old Italian tourist and the evacuation of nearly 1,700 guests. The cause of the blaze, which spread quickly due to wind conditions and the flammable thatched roofs on some buildings, remains unknown. Three people were taken to medical facilities, and six others received treatment on-site. The Emergency Operations Center reported that the fire had been brought under control, and guests were relocated to other hotels. Italian authorities, including the ambassador to the Dominican Republic, are assisting the deceased woman's husband and approximately 285 Italian tourists affected by the fire. Wyndham Hotels & Resorts, which franchises the hotel, stated that the independently owned and operated property will remain closed until further notice. Tourist activities in the town and surrounding area were not affected by the incident.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/americas/dominican-republic-fire.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Huge Blaze Ravages Dominican Republic Beach Resort</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 03:27
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c932k8010j1o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Tourist dies in Dominican Republic luxury resort fire</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 17:33
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 27</span>
+
+    <h2 class="news-title">Environmental Icon Mona Khalil Slain in Israeli Attack Amid Struggle to Protect Lebanon's Sea Turtles</h2>
+
+    <p class="news-summary">Lebanese environmental activist Mona Khalil, known for her efforts to protect endangered sea turtles on the country's southern coastline, was killed in an Israeli strike on her home near Tyre. Khalil, 76, had dedicated over two decades to preserving the nesting sites for loggerhead and green sea turtles along Lebanon's southern coast. Her work led to the protected status of parts of the coastline and raised awareness about the threats facing marine ecosystems in Lebanon. Born a refugee of the Lebanese Civil War, Khalil's commitment to conservation was inspired by a life-changing encounter with a sea turtle laying eggs on Mansouri beach in 1999. This experience led her to establish the Orange House Project in 2000, an eco-tourism and conservation initiative that evolved into a center for environmental education, wildlife protection, and marine research. Despite years of conflict in southern Lebanon, Khalil remained dedicated to her work, refusing to leave the beach she had spent years protecting. Her death has raised concerns about renewed violence in the region and highlights the impact of environmental activists in protecting endangered species and their habitats.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/middleeast/mona-kahlil-turtles-lebanon-conservation.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Mona Khalil, Defender of Sea Turtles, Killed in an Israeli Strike in Lebanon</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 22:18
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cwylx1vq18zo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Lebanese turtle conservationist Mona Khalil killed by Israeli strike</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 17:40
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 28</span>
+
+    <h2 class="news-title">True Crime Convergence: Balancing Commercial Appeal and Victim Advocacy at CrimeCon</h2>
+
+    <p class="news-summary">True crime enthusiasts gathered at CrimeCon, an annual event in Las Vegas, to delve into their fascination with real-life tragedies while grappling with the inherent contradictions of profiting from others' misfortune. Among the attendees were victims' relatives, like trauma psychologist Dr. Maggie Zingman, whose daughter's murder remains unsolved. Zingman recognizes the event's commercial aspects but sees it as a platform to raise awareness about her daughter's case.
+
+The true crime genre has grown exponentially in the past decade, with podcasts like "Serial" and docuseries like "The Jinx" and "Making a Murderer" contributing to its popularity. CrimeCon has grown alongside this trend, with attendance increasing from 800 in its inaugural event to 6,500 in recent years.
+
+However, the genre has faced criticism for focusing more on the perpetrators than the victims and the exploitation inherent in profiting from tragedy. To address these concerns, CrimeCon has made efforts to promote victim advocacy and support groups like the National Center for Missing and Exploited Children and the Black and Missing Foundation.
+
+The event strives to balance the commercial aspects of true crime with the need to respect and support victims and their families. Attendees like Gabby Petito's parents and the parents of Kaylee Goncalves have their own booths to promote their advocacy foundations, highlighting the event's efforts to push the advocacy side of victims' stories.
+
+Despite the criticisms, CrimeCon continues to attract a dedicated audience, with some attendees spending thousands of dollars on tickets and merchandise. The event provides a platform for victims' families to share their stories and raise awareness about unsolved cases, while also offering a space for true crime enthusiasts to learn about human behavior and crime investigation.
+
+As the true crime genre continues to evolve, events like CrimeCon will likely face ongoing challenges in balancing commercial interests with the need to respect and support victims and their families.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cr47z6ykp2xo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">At CrimeCon true crime obsessives come face-to-face with real loss</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 23:26
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/canada/tim-hortons-prices-quebec-court.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">A Court Case Reveals Some of Tim Hortons’ Secrets</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 10:00
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 29</span>
+
+    <h2 class="news-title">AI Company Sends Free Human 'Teachers' to Train Robots in NYC Homes Amid Privacy Concerns</h2>
+
+    <p class="news-summary">New York City residents are experiencing a unique scenario as AI company Micro AGI sends free cooking and cleaning staff, equipped with high-tech recording apparatus, to their doors. The initiative, called Shift, aims to gather data to train the next generation of cooking and cleaning robots. Two college graduates, stationed in New York indefinitely due to high demand for the free cleans, are focused on tasks requiring dexterity. Shift's founder, Bercan Kilic, explains that the data-gathering exercise is to "advance humanity" by training robots to adapt to different spaces and objects. However, privacy concerns have been raised, with experts warning consumers to be cautious about offering their data in exchange for free services. Kilic defends the initiative, stating that it is a transparent transaction and those who do not want to participate are not obligated to do so.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cpwerjy20kyo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Why an AI company cleaned my New York City apartment for free</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 23:18
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 30</span>
+
+    <h2 class="news-title">Israeli Strikes in Gaza Kill Journalist and 1,007 Others Since Ceasefire, Sparking Accusations From Both Sides</h2>
+
+    <p class="news-summary">The Israeli military has confirmed that its strikes in Gaza have killed six people, including an Al Jazeera cameraman and at least one child. The Al Jazeera network strongly condemned the targeting and killing of its correspondent Ahmed Wishah, who was killed in a strike on a central Gaza home. The IDF accused Wishah of being a Hamas sniper operative, a claim denied by Al Jazeera. Gaza's Hamas-run health ministry reports that the Israeli military has killed 1,007 people since the ceasefire between Israel and Hamas came into effect last October. The IDF also accused two other people killed along with Wishah of being a part of Hamas. In another strike, four family members, including two children, were killed in the Sabra neighborhood of Gaza City. Both Israel and Hamas have accused each other of violating the ceasefire since October. The UN's humanitarian agency reports that 70% of the Gaza population still needs proper shelter, and essential services are "on the brink.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c4gy26p6pwzo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Israeli strikes kill six people in Gaza including Al Jazeera cameraman, officials say</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 21:57
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 31</span>
+
+    <h2 class="news-title">U.S. and Iran Clash Over Hormuz: Strategic Oil Waterway in Limbo Amid Rival Claims</h2>
+
+    <p class="news-summary">The Strait of Hormuz, a critical waterway for global oil trade, has become a point of contention between the United States and Iran. While the U.S. military reported that 55 ships successfully passed through the strait on Saturday, Iran's military issued a statement claiming the waterway would be closed once again. This announcement threatens the recent uptick in traffic through the strategically important passage. The conflicting accounts from both nations have left the situation in the Strait of Hormuz uncertain, raising concerns about the stability of global oil trade and the potential for further escalation in the region.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/middleeast/uncertainty-strait-hormuz-iran-us.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Uncertainty Remains Over the Strait of Hormuz</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 17:55
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/middleeast/iran-strait-of-hormuz-traffic.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">New Strait of Hormuz Closure Announcement Threatens the Slow Uptick in Traffic</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 23:13
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 32</span>
+
+    <h2 class="news-title">Scotland Rampage Leaves Five Injured; Counterterrorism Investigates Motive</h2>
+
+    <p class="news-summary">A man has been arrested in Scotland following a rampage that left five people injured. An advocacy group has identified some of the victims as Muslims, prompting counterterrorism authorities to lead the investigation. However, a motive for the attacks remains unknown at this time.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/europe/edinburgh-stabbing-arrest-injuries.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Man Is Arrested in Scotland After Rampage Leaves 5 Hurt</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 11:30
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 33</span>
+
+    <h2 class="news-title">Entrepreneurial Spirit: Afghan Women Navigate Taliban Restrictions to Build Businesses</h2>
+
+    <p class="news-summary">The Women Running Businesses Under Taliban Rules
+With secondary education and most jobs out of reach, thousands of Afghan women have turned to entrepreneurship as the only path to make money and maintain a social life.
+
+Under the Taliban's restrictive rules, Afghan women face limited opportunities for education and employment. However, many have found a way to support themselves and their families by starting their own businesses. These entrepreneurial women are navigating the challenges posed by the Taliban's conservative policies while striving to maintain a sense of normalcy in their lives.
+
+One woman, who runs a small bakery, explained that her business allows her to earn a living and socialize with other women, despite the restrictions on their movement and interaction with men. Another entrepreneur, who sells traditional Afghan clothing, noted that her work provides her with a sense of purpose and financial independence.
+
+Despite the challenges, these women are determined to succeed and make a living under the Taliban's rule. Their businesses not only help them financially but also give them a sense of agency and a way to connect with others in a society where their options are limited. As the situation in Afghanistan continues to evolve, these women's stories highlight the resilience and adaptability of Afghan women in the face of adversity.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/asia/women-taliban-restrictions-jobs-education.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">The Women Running Businesses Under Taliban Rules</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 11:16
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 34</span>
+
+    <h2 class="news-title">Hakimi to Face Rape Trial Amid World Cup Glory</h2>
+
+    <p class="news-summary">Moroccan football captain Achraf Hakimi is set to face trial in France for rape allegations, French prosecutors have confirmed. The Paris St-Germain defender is accused of raping a woman at his home in Paris in 2023, when she was 24 years old. The public prosecutor's office in Nanterre began a preliminary investigation in March 2023, and an investigating judge ordered a trial in February 2026. Hakimi, who has consistently denied the accusations, has appealed to have the trial dismissed but was unsuccessful. The trial is expected to provide the plaintiff with relief and hope, as well as the opportunity to speak out against sexual violence in the world of men's football. Hakimi, who led Morocco out for their second World Cup fixture against Scotland on Friday, has won 97 caps for his country and played a key role in their historic semi-final appearance in 2022.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/europe/gomez-spain-trial-corruption.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Wife of Spanish Prime Minister to Stand Trial for Corruption</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 19:11
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/sport/football/articles/c20y18z7le1o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Morocco captain Achraf Hakimi to stand trial for rape</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 19/06 10:28
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 35</span>
+
+    <h2 class="news-title">Zelensky Accepts Return of Poland's Highest Honor Amid UPA Row</h2>
+
+    <p class="news-summary">In a surprising turn of events, Ukrainian President Volodymyr Zelensky has announced that he will return Poland's highest honor, the Order of the White Eagle, after Polish President Karol Nawrocki stated his intention to strip Zelensky of the award. The decision comes in the wake of Ukraine's renaming of a Ukrainian army unit after the controversial World War Two fighters, the Ukrainian Insurgent Army (UPA), which has caused outrage in Poland. Many in Ukraine consider the UPA heroes who fought for independence against various adversaries, while Poland accuses the group of genocide against ethnic Poles. Despite the diplomatic row, Polish officials have stressed that it will not impact Poland's support for Ukraine in its ongoing war against Russia.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c2lye7xje9yo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Zelensky returns highest Polish honour after award stripped</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 16:34
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 36</span>
+
+    <h2 class="news-title">China's Strategic Oil Reserves Buffer Against Geopolitical Unrest in Persian Gulf</h2>
+
+    <p class="news-summary">China's oil purchases from the Persian Gulf have been significantly lower since the start of the Ukraine war, with China currently sitting on full strategic reserves. As the world continues to scramble for oil amidst geopolitical tensions, China remains unaffected by the possible reopening of the Strait of Hormuz. This could indicate a potential shift in China's oil purchasing behavior, away from the Persian Gulf and towards its own strategic reserves.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/business/china-oil-iran.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">While the World Scrambles for Oil, China Sits on Full Tanks</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 09:01
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 37</span>
+
+    <h2 class="news-title">Paz Declares State of Emergency Amid Unrest Over Fuel Subsidies and Resignation Demand</h2>
+
+    <p class="news-summary">Bolivian President Rodrigo Paz declared a state of emergency amid weeks of protests demanding his resignation. The move would grant Paz broader powers to remove roadblocks set up by demonstrators, which have caused severe shortages of basic goods and paralyzed significant parts of the nation. Paz stated that the state of emergency would "free the country's roads" and "restore" normalcy. Under Bolivian law, Congress must approve or reject the measure within 72 hours of the declaration.
+
+The blockades, led by miners, farmers, and indigenous groups, are part of protests that began at the end of April. Several people have died and hundreds have been arrested during the unrest. Protesters are demanding fuel subsidies to be reinstated, a rollback of austerity measures, and Paz's resignation. Paz claims the crisis is an organized attempt to destabilize the country.
+
+Despite striking a deal with the Bolivian Workers' Confederation, some indigenous groups have stated they will continue to protest, with roadblocks remaining in place. Journalists reported seeing police and military personnel in main squares on Saturday. The protests were initially triggered by a land reform proposed by Paz, which critics argued would make it easier for large landowners to buy up small properties. Paz has since scrapped the reform, but farmers have been joined by other groups expressing grievances over other measures, like cuts to long-standing fuel subsidies and proposed changes to Bolivia's constitution. Paz has accused the left-wing former president, Evo Morales, of orchestrating the protests, which the ex-leader has denied.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cr47wn92zdgo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Bolivian president declares state of emergency</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 15:27
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 38</span>
+
+    <h2 class="news-title">U.S. Halts $400M AIDS Funding to South Africa Amid Tensions Over Land and Minority Protection</h2>
+
+    <p class="news-summary">The United States has decided to stop funding HIV and AIDS programs in South Africa, citing the country's alleged failure to protect the white-minority Afrikaner community. South Africa, home to over eight million people living with HIV - the highest number in the world, will see a phased drawdown of the President's Emergency Plan for AIDS Relief (PEPFAR) funding, which amounted to an estimated $400 million annually until 2025. Relations between the US and South Africa have soured since President Donald Trump's inauguration, with Trump issuing an executive order accusing South Africa of dismantling equal opportunities and fueling violence against landowners. South Africa denies these allegations, stating that its Black Economic Empowerment policy is necessary to address economic inequality stemming from apartheid. The US claims that South Africa's failure to make demonstrable progress on policy requests by the administration necessitates the shift towards fostering self-reliance and reducing dependency on American funding. South Africa's health ministry, while not informed of the decision, has emphasized its ongoing efforts towards self-reliance in managing the HIV epidemic.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cdr457lxr71o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">US to stop funding HIV programmes in South Africa</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 19/06 23:35
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/19/world/africa/southafrica-aids-pepfar.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">U.S. to End AIDS Funding for South Africa</span>
+        <span class="art-meta">
+          rss.nytimes.com · 19/06 19:07
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 39</span>
+
+    <h2 class="news-title">Father and Uncle Receive Life Sentences for Popular TikTok Star's Murder; South London Woman Jailed for 1978 Child Abuse</h2>
+
+    <p class="news-summary">In a shocking case of child abuse, a father and uncle from New York have been handed life sentences for the brutal murder of their 14-year-old niece. The victim, a popular TikTok star, was killed in a premeditated act, according to the court's ruling. This sentence comes as Janice Nix, a woman from South London, receives a 12-year prison term for the 1978 scalding death of her five-year-old stepdaughter. Nix was found guilty of manslaughter after her stepson revealed that she had forced his sister into a hot bath as punishment. Both cases highlight the tragic consequences of child abuse and the importance of holding perpetrators accountable for their actions.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/asia/pakistan-yonkers-hira-anwar.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Father and Uncle of Slain New York Girl Given Life Sentences in Pakistan</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 17:14
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/19/world/europe/janice-nix-scalding-killing-london-1978.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Woman Receives 12-Year Sentence for 1978 Scalding Death of Stepdaughter, 5</span>
+        <span class="art-meta">
+          rss.nytimes.com · 19/06 18:52
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 40</span>
+
+    <h2 class="news-title">African and Caribbean Nations Demand Apologies and Reparations for Transatlantic Slave Trade Legacy at Accra Conference</h2>
+
+    <p class="news-summary">The African and Caribbean nations have called for a formal apology and reparations from countries that benefited from the transatlantic slave trade. This demand comes after a three-day conference in Ghana, which aimed to advance the push for reparatory justice. The conference followed a landmark UN resolution in March, which recognized transatlantic slavery as the "gravest crime against humanity" and urged UN member states to contribute to a reparations fund.
+
+The 19-point reparations plan endorsed during the "Next Steps" conference in Accra calls for comprehensive debt relief, the restitution of looted cultural property, and the establishment of a global reparations fund. The plan also addresses the disproportionate impact of slavery on African women and girls. Conference leaders called on countries formerly involved in the slave trade to offer their "full, formal and unconditional apologies."
+
+While French President Emmanuel Macron acknowledged the dehumanization and treatment of enslaved people as goods, he cautioned against reducing reparations for slavery to financial compensation alone. UK and US ambassadors to the UN have previously rejected calls to pay reparations, stating that today's institutions cannot be held responsible for past wrongs and that no single set of atrocities should be regarded as more or less significant than another.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cm2rl8z5x7no?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">African and Caribbean nations call for formal apology for transatlantic slavery</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 02:33
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 41</span>
+
+    <h2 class="news-title">Bird Flu Detected in Australia; 12-Year-Old's Compassion for Sick Chicken Goes Viral in Ethiopia</h2>
+
+    <p class="news-summary">The H5N1 strain of bird flu has been detected in Australia for the first time, marking its presence on every continent. The disease was found in a brown skua, a migratory seabird, at Cape Le Grand National Park in Western Australia. While the strain can spread quickly among poultry and wild bird populations, human cases are uncommon. Authorities have been preparing for this event and are monitoring the situation closely. In a heartwarming story from Ethiopia, 12-year-old Markos Abaye attempted to take his sick chicken to a local hospital after it did not respond to home treatments. The video of Markos and his chicken at the hospital went viral, showcasing the boy's compassion and love for animals. The story drew national attention, and a local poultry company announced plans to donate 100 chickens to Markos along with training in poultry farming.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c4gykxklvl5o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Australia confirms first case of H5N1 bird flu as virus reaches every continent</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 03:12
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cy49e7w3rmxo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Boy, 12, wins hearts after trying to check sick chicken into Ethiopian hospital</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 19/06 10:25
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 42</span>
+
+    <h2 class="news-title">Television Legend James Burrows: Iconic Director of Cheers, Friends, and Will & Grace Passes Away at 85</h2>
+
+    <p class="news-summary">Legendary television director James Burrows passed away at the age of 85. Burrows, known for his work on iconic sitcoms such as Cheers, Friends, and Will and Grace, directed over 1,000 episodes throughout his career. He won 11 Emmy Awards and five Directors Guild of America Awards. Born in Los Angeles in 1940, Burrows attended the Yale School of Drama before co-creating Cheers with Glen and Les Charles. The Directors Guild of America praised Burrows as "an incredibly generous colleague" who shared his wisdom and humor with fellow Guild members. Actors Eric McCormack, Beth Behrs, and Lisa Kudrow paid tribute to Burrows, remembering his impact on their careers and lives. NBC called his loss to the television and comedy world "immeasurable.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/ce8k07x523eo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">James Burrows, legendary director of Cheers and Friends, dies aged 85</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 20/06 00:23
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 43</span>
+
+    <h2 class="news-title">XG: From Brutal Training to Global Stardom, J-Pop Group's Unique Ritual Reflects Their Intense Bond</h2>
+
+    <p class="news-summary">Japanese pop group XG, who went from brutal five-year training to global pop stardom, have a unique bond that sets them apart. Before each performance, the seven members form a circle and join hands, shouting "Hesono" and "Oh," a ritual that symbolizes their intense connection. The phrase "Hesono-o" represents the group's unity and the intensity of their bond.
+
+XG's members were scouted from thousands of hopefuls across Japan in 2016 and underwent rigorous training, living together in dormitories while taking lessons in singing, dancing, and speaking multiple languages. The training regime was harsh, with scenes in a documentary showing them performing squats until they fell sick or burst into tears.
+
+After five years of effort, the band went public in 2022 with their debut single, Tippy Toes, and have since released several hits, including Galz Xypher and Shooting Star. Their music showcases their ability to transition seamlessly from rap flows to melodic vocal riffs and has garnered millions of plays on YouTube.
+
+In December 2022, band member Cocona came out as transmasculine and non-binary, a move that was met with support from their bandmates and fans. The announcement marked a significant moment in the tightly-controlled world of J-pop and idol music.
+
+XG's latest album, The Core, features a more expansive sound than their previous EPs, with tracks like Gala and Hypnotise showcasing the band's musical growth. The group will perform at Wembley Arena in September as part of a year-long world tour.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/cly8gj8pqz7o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Japanese pop group XG went from brutal five year training to global pop stars</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 19/06 23:40
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 44</span>
+
+    <h2 class="news-title">Zimbabwe Parliament Approves Extension of Presidential Term to 7 Years, Sparking Opposition and Constitutional Concerns</h2>
+
+    <p class="news-summary">The Zimbabwean parliament has passed a bill that would extend the presidential term from five to seven years, allowing President Emmerson Mnangagwa to remain in power until 2030. The bill, which was supported by over 200 lawmakers, also scraps direct presidential elections, with future presidents being chosen by parliament. This move has been met with criticism from opposition parties, civil society groups, and constitutional lawyers who argue that such fundamental changes should be put to a national referendum rather than being approved solely through parliament. The bill now heads to the senate, where it is expected to secure approval before being enacted by the president.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/articles/c20y15m0337o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Zimbabwe MPs pass bill to extend president's time in power</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 19/06 08:03
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 45</span>
+
+    <h2 class="news-title">Kushner Controversies: Antisemitism Accusations in Paris and Albanian Protests Hound US Envoy and Family Ventures</h2>
+
+    <p class="news-summary">Charles Kushner, a prominent figure in the Trump orbit and now the U.S. Ambassador to France, has become a source of contention in Paris. His tenure has been marked by a combative diplomatic approach, particularly in his accusations of antisemitism against French officials and institutions. This has ruffled feathers within the French establishment, leading to tensions between the two countries.
+
+Meanwhile, back in Albania, another project linked to the Kushner family has sparked protests. Plans for a luxury tourist site have become a rallying point for those opposed to President Trump and his family's business ventures. Despite the local politics driving the protests, the issue has gained international attention, highlighting the global reach of the Kushners' endeavors.
+
+The Kushner family's ventures have proven controversial both in France and Albania, with Charles Kushner's diplomatic style in Paris and the luxury project in Albania becoming flashpoints for broader political and social issues. As the Kushners continue to expand their global influence, these incidents serve as reminders of the complexities and challenges that come with such ambitious projects.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/21/world/europe/albania-kushner-project-protests.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Luxury Kushner Project Collides With Albanian Discontent</span>
+        <span class="art-meta">
+          rss.nytimes.com · 21/06 04:21
+        </span>
+      </a>
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/europe/charles-kushner-france-us-ambasador-trump.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Charles Kushner, U.S. Ambassador to France, Riles Paris With Trump Diplomacy</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 04:01
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 46</span>
+
+    <h2 class="news-title">Former Auto Tycoon Stronach Convicted on Sexual Assault Charges, Awaiting Appeal</h2>
+
+    <p class="news-summary">Canadian billionaire and former auto parts magnate Frank Stronach has been convicted of sexual and indecent assault. The 93-year-old businessman faced a total of five charges, with a jury finding him guilty of sexual assault and indecent assault in two cases. However, Stronach was acquitted on three other charges. The verdict comes after a lengthy trial that has garnered significant attention in Canada's business and legal circles. Details of the allegations against Stronach, which spanned several years, were presented in court, leading to the mixed outcome. The conviction of the once-revered industrialist has sparked discussions about accountability and the impact of such allegations on high-profile individuals. Stronach's legal team has indicated plans to appeal the conviction, seeking to overturn the guilty verdicts.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/19/world/canada/frank-stronach-trial-guilty-sex-charges.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Canadian Billionaire Frank Stronach Is Convicted of Sexual and Indecent Assault</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 17:38
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 47</span>
+
+    <h2 class="news-title">Wine & Wreckage: Jeju Island's Shipwreck Festival Sails Ahead Amid Controversy</h2>
+
+    <p class="news-summary">The 175-year-old shipwreck of the French whaler "La Solitaire" has become the centerpiece of a unique wine festival on the South Korean island of Jeju. The shipwreck, discovered in 2014, was carrying a cargo of wine when it sank off the coast of Jeju in 1846. The island, facing economic challenges, has turned this historical event into an opportunity to boost its tourism industry.
+
+The festival, which began on July 26 and will run until August 11, features wine tastings, cultural performances, and exhibitions showcasing the history of the shipwreck. Organizers hope that the event will not only attract visitors but also raise awareness about the island's rich maritime history.
+
+However, not everyone on the island is in favor of the festival. Some locals argue that the focus on the shipwreck and its wine cargo ignores the human lives lost when the ship sank. They believe that the festival should also pay tribute to the crew members who perished in the accident.
+
+Despite the controversy, the festival has drawn visitors from across South Korea and beyond. The organizers are hopeful that the event will help revitalize the island's economy and put Jeju back on the map as a must-visit destination for tourists.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/asia/korea-bigeum-champagne-festival.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">A 175-Year-Old Shipwreck, Lots of Booze and a Korean Island’s Quest to Survive</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 12:33
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 48</span>
+
+    <h2 class="news-title">BURNHAM'S POPULARITY IGNITES LABOUR LEADERSHIP DEBATE</h2>
+
+    <p class="news-summary">[1] Andy Burnham's Popularity Could Lead to Labour Leadership Challenge
+A recent poll shows that Andy Burnham, the mayor of Greater Manchester, is more popular than Labour Party leader Keir Starmer. Some Labour members are calling for a leadership challenge, but Burnham has not expressed interest in the role.
+
+[2] Andy Burnham's Popularity Creates Speculation About Labour Leadership
+The mayor of Greater Manchester, Andy Burnham, has become more popular than Labour Party leader Keir Starmer. This has led to speculation that Burnham could be a contender for the Labour leadership, but he has not publicly expressed interest in the position.
+
+[3] Andy Burnham's Popularity May Spark Labour Leadership Race
+A recent poll shows that Andy Burnham, the mayor of Greater Manchester, is more popular than Labour Party leader Keir Starmer. This has led to speculation that Burnham could be a contender for the Labour leadership, but he has not publicly expressed interest in the position.
+
+[4] Andy Burnham's Popularity Raises Questions About Labour Leadership
+The mayor of Greater Manchester, Andy Burnham, has become more popular than Labour Party leader Keir Starmer. This has led to questions about whether Burnham could be a contender for the Labour leadership, but he has not publicly expressed interest in the position.
+
+Summary:
+Recent polling has shown that Andy Burnham, the mayor of Greater Manchester, has become more popular than Labour Party leader Keir Starmer. This development has sparked speculation among some Labour members about a potential leadership challenge, with calls for Burnham to take on the role. However, Burnham has not publicly expressed interest in the position, leaving the future of the Labour leadership uncertain. Despite the popularity of Burnham, he would still face the same challenges that Starmer currently faces, should he decide to take on the leadership role.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/europe/burnham-starmer-labour-uk-reform.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">After Andy Burnham’s Win, the UK Is Set to Test How Far Charisma Can Shift Electoral Dynamics</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 11:36
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 49</span>
+
+    <h2 class="news-title">HORMUZ STRAIT TRAFFIC REMAINS ELEVATED BELOW PREWAR LEVELS DESPITE U.S.-IRAN DEAL</h2>
+
+    <p class="news-summary">The Strait of Hormuz, a critical shipping route connecting the Persian Gulf to the open ocean, has seen its traffic remain significantly below prewar levels despite a preliminary U.S.-Iran agreement aimed at reopening the waterway. The agreement, which took steps to ease tensions between the two nations, has not yet led to a consistent increase in shipping activity through the strait. The ongoing instability and uncertainty in the region continue to impact the global trade, with the shipping industry struggling to return to its pre-conflict levels. The situation underscores the challenges faced in restoring normalcy in a region where geopolitical tensions have a direct impact on global commerce.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/world/middleeast/shipping-remains-far-below-prewar-levels-in-the-strait-of-hormuz.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Shipping remains far below prewar levels in the Strait of Hormuz.</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 11:57
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 50</span>
+
+    <h2 class="news-title">CUBA'S DARK AGES: DAILY LIFE IN THE SHADOWS OF AN ENERGY CRISIS</h2>
+
+    <p class="news-summary">Cubans Face Darkness Amid Energy Crisis
+By Jack Nicas, Lisette Poole González, Leila Medina, Christina Thornell, Coleman Lowndes, Joey Sendaydiego and Thomas Vollkommer
+June 19, 2026
+The energy crisis in Cuba has plunged the country into darkness, with residents facing power outages for up to 22 hours a day. Photographer Lisette Poole González documented the situation in Havana, capturing the daily struggles of Cubans living in the dark. The crisis has forced many to rely on candles and flashlights, leading to increased fires and accidents. The Cuban government has struggled to address the issue, with limited resources and infrastructure hindering efforts to improve the situation. As the crisis continues, Cubans are left to navigate their daily lives in the absence of reliable electricity.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/video/world/americas/100000010937059/how-cubans-are-living-in-the-dark.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">How Cubans Are Living in the Dark</span>
+        <span class="art-meta">
+          rss.nytimes.com · 19/06 18:22
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 51</span>
+
+    <h2 class="news-title">NEW YORK KNICKS' SURGE REVITALIZES CITY, PROMPTS RENEWED SENSE OF HOPE AND UNITY</h2>
+
+    <p class="news-summary">The New York Knicks' unexpected rise to the top of the NBA standings has brought a renewed sense of hope and unity to the city, according to a recent article. The team's success has led to a temporary transformation of the city, with fans from all walks of life coming together to cheer on their favorite players. This resurgence has provided a glimpse of a kinder, more connected world, where people are able to put aside their differences and come together for a common cause. The article highlights the positive impact that sports can have on a community, and the potential for this kind of unity to extend beyond the basketball court and into other aspects of life.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/20/briefing/game-change.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Game Change</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 10:21
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 52</span>
+
+    <h2 class="news-title">Qantas' Marathon Sky Soar: Sydney-London Leap</h2>
+
+    <p class="news-summary">[1] Qantas to Launch World's Longest Non-Stop Flight from Sydney to London in 2027
+Qantas to Launch World's Longest Non-Stop Flight from Sydney to London in 2027
+SYDNEY, AUSTRALIA - Australian airline Qantas announced plans to launch the world's longest non-stop flight, connecting Sydney to London. The 20-hour journey will commence in October 2027, marking a significant milestone in aviation history.
+The flight, operated by a Boeing 787-9 Dreamliner, will cover a distance of 17,020 kilometers (10,587 miles), saving passengers approximately 3 hours compared to the current longest non-stop flight.
+Qantas expects to offer up to 11 flights per week, with tickets priced around 20% higher than traditional layover flights due to the extended duration and additional services provided to passengers.
+The airline aims to attract business travelers and those willing to pay a premium for a seamless travel experience without the need for layovers or connecting flights.
+
+[2] Qantas' 20-hour non-stop flight from Sydney to London: Would you pay extra for it?
+Qantas' 20-hour non-stop flight from Sydney to London: Would you pay extra for it?
+SYDNEY, AUSTRALIA - Australian airline Qantas has announced plans to launch the world's longest non-stop flight, connecting Sydney to London. The 20-hour journey will commence in October 2027, marking a significant milestone in aviation history.
+The flight, operated by a Boeing 787-9 Dreamliner, will cover a distance of 17,020 kilometers (10,587 miles), saving passengers approximately 3 hours compared to the current longest non-stop flight.
+Qantas expects to offer up to 11 flights per week, with tickets priced around 20% higher than traditional layover flights due to the extended duration and additional services provided to passengers.
+The airline aims to attract business travelers and those willing to pay a premium for a seamless travel experience without the need for layovers or connecting flights. However, some passengers may find the extended duration challenging and may prefer the option of stopping over in a hub city.
+The announcement has sparked a debate among travelers about whether they would be willing to pay extra for the convenience of a non-stop flight, despite the longer duration.
+
+Summary:
+Australian airline Qantas has announced plans to launch the world's longest non-stop flight, connecting Sydney to London. The 20-hour journey, set to commence in October 2027, will be operated by a Boeing 787-9 Dreamliner and cover a distance of 17,020 kilometers (10,587 miles). The flight aims to save passengers approximately 3 hours compared to the current longest non-stop flight and will offer up to 11 flights per week. However, tickets for this ultra-long-haul journey will be priced around 20% higher than traditional layover flights.
+
+While the airline targets business travelers and those willing to pay a premium for a seamless travel experience without layovers or connecting flights, the extended duration may pose challenges for some passengers. The announcement has sparked a debate among travelers about whether they would be willing to pay extra for the convenience of a non-stop flight, despite the longer duration.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/videos/cn4dqg0dz5go?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Would you choose to take a 22-hour non-stop flight?</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 19/06 18:47
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 53</span>
+
+    <h2 class="news-title">Train Collision in Bedford Tragedy: One Dead, Dozens Injured; Rail Safety Concerns Escalate</h2>
+
+    <p class="news-summary">At least one person was killed and dozens injured when two trains collided near Bedford, England. The crash occurred during the evening rush hour, causing significant disruption to rail services in the area. Initial investigations are being conducted by the Rail Accident Investigation Branch and British Transport Police to determine the cause of the accident. The incident has raised concerns about rail safety and prompted calls for a thorough examination of the country's aging railway infrastructure.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/19/world/europe/uk-trains-collide-bedford-england.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Trains Collide in UK, Killing at Least One and Injuring Dozens of Others</span>
+        <span class="art-meta">
+          rss.nytimes.com · 20/06 00:22
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 54</span>
+
+    <h2 class="news-title">Russia Downs Nearly 1,000 Drones, Four Missiles in 24 Hours After Ukraine Attack on Moscow</h2>
+
+    <p class="news-summary">[1] Russia's defence ministry says it has shot down nearly 1,000 drones and four cruise missiles in 24 hours
+Russia's defence ministry says it has shot down nearly 1,000 drones and four cruise missiles in 24 hours
+Russia's defence ministry said on Monday that it had shot down nearly 1,000 drones and four cruise missiles over the country in the past 24 hours, following a major Ukrainian attack on Moscow and other targets.
+The ministry said the drones were launched from Ukraine, Belarus and the Black Sea, with most targeting the Moscow region, where 17 people were wounded, according to local governor Andrei Vorobyov.
+The ministry said four cruise missiles were fired from the Caspian Sea, with three shot down over the Caspian Sea and one over the Astrakhan region.
+The ministry said it had also destroyed four Ukrainian Su-24 and Su-27 fighter jets, which it said had attempted to attack Russian air defences.
+Ukraine has not commented on the incident.
+
+[2] Russia says it has shot down nearly 1,000 drones in 24 hours after Ukraine attacks Moscow
+Russia says it has shot down nearly 1,000 drones in 24 hours after Ukraine attacks Moscow
+Russia's defence ministry said on Monday it had shot down nearly 1,000 drones and four cruise missiles in 24 hours after Ukraine attacked Moscow and other targets.
+The ministry said the drones were launched from Ukraine, Belarus and the Black Sea, with most targeting the Moscow region, where 17 people were wounded, according to local governor Andrei Vorobyov.
+The ministry said four cruise missiles were fired from the Caspian Sea, with three shot down over the Caspian Sea and one over the Astrakhan region.
+The ministry said it had also destroyed four Ukrainian Su-24 and Su-27 fighter jets, which it said had attempted to attack Russian air defences.
+Ukraine has not commented on the incident.
+
+[3] Ukraine attacks Moscow with nearly 1,000 drones, Russia says
+Ukraine attacks Moscow with nearly 1,000 drones, Russia says
+Russia's defense ministry said on Monday that it had shot down nearly 1,000 drones and four cruise missiles in 24 hours after Ukraine attacked Moscow and other targets.
+The ministry said the drones were launched from Ukraine, Belarus and the Black Sea, with most targeting the Moscow region, where 17 people were wounded, according to local governor Andrei Vorobyov.
+The ministry said four cruise missiles were fired from the Caspian Sea, with three shot down over the Caspian Sea and one over the Astrakhan region.
+The ministry said it had also destroyed four Ukrainian Su-24 and Su-27 fighter jets, which it said had attempted to attack Russian air defences.
+Ukraine has not commented on the incident.
+
+[4] Russia intercepts nearly 1,000 drones and four missiles in 24 hours after Ukraine attack
+Russia intercepts nearly 1,000 drones and four missiles in 24 hours after Ukraine attack
+Russia's defence ministry said on Monday that it had shot down nearly 1,000 drones and four cruise missiles in 24 hours after Ukraine attacked Moscow and other targets.
+The ministry said the drones were launched from Ukraine, Belarus and the Black Sea, with most targeting the Moscow region, where 17 people were wounded, according to local governor Andrei Vorobyov.
+The ministry said four cruise missiles were fired from the Caspian Sea, with three shot down over the Caspian Sea and one over the Astrakhan region.
+The ministry said it had also destroyed four Ukrainian Su-24 and Su-27 fighter jets, which it said had attempted to attack Russian air defences.
+Ukraine has not commented on the incident.
+
+[5] Russia says it has shot down nearly 1,000 drones in 24 hours after Ukraine attacked Moscow
+Russia says it has shot down nearly 1,000 drones in 24 hours after Ukraine attacked Moscow
+Russia's defence ministry said on Monday it had shot down nearly 1,000 drones and four cruise missiles in 24 hours after Ukraine attacked Moscow and other targets.
+The ministry said the drones were launched from Ukraine, Belarus and the Black Sea, with most targeting the Moscow region, where 17 people were wounded, according to local governor Andrei Vorobyov.
+The ministry said four cruise missiles were fired from the Caspian Sea, with three shot down over the Caspian Sea and one over the Astrakhan region.
+The ministry said it had also destroyed four Ukrainian Su-24 and Su-27 fighter jets, which it said had attempted to attack Russian air defences.
+Ukraine has not commented on the incident.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/videos/cgjx87jljqpo?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Will Putin change tactics after Ukrainian drone attacks?</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 18/06 10:52
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 55</span>
+
+    <h2 class="news-title">YACHTERS NARROWLY ESCAPE RUSSIAN WARSHIP CONFRONTATION IN TROUBLED WATERS</h2>
+
+    <p class="news-summary">The retired British couple, Jane and Alan Kelvey, shared their harrowing experience of coming close to a Russian warship, the Admiral Grigorovich, while sailing their yacht. The couple, speaking to BBC's Newsnight, described how the Russian frigate sounded five blasts on its horn, indicating that they had seen the yacht. In response, the Kelveys turned their yacht two degrees to port, signaling that they had indeed seen the warship and acknowledged its presence.
+
+The Russian Defence Ministry claimed that the yacht was on a "dangerous approach" towards the warship and that the crew fired into its path with rifles after multiple attempts to contact the yacht via radio and launching warning flares.
+
+The UK Ministry of Defence has since described the encounter as an "isolated incident" and not linked to the seizure of a Russian shadow fleet tanker in the Channel on Sunday.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/videos/cevldxgklxko?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">'Warning fire went up': Couple on board yacht describe encounter with Russian warship</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 16/06 22:01
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 56</span>
+
+    <h2 class="news-title">Trump and Meloni's Friendship in Shambles Over Disputed G7 Photo</h2>
+
+    <p class="news-summary">[1] Trump Says Meloni Begged for Photo, She Denies It
+Former President Donald Trump claimed that Italian Prime Minister Giorgia Meloni "begged" for a photo together at the G7 summit. Meloni's office has denied the allegation, stating that the meeting was scheduled and the photo was taken as part of the official program. The exchange highlights the deteriorating relationship between the two leaders.
+
+[2] Meloni Denies Begging for Photo with Trump
+Italian Prime Minister Giorgia Meloni has denied claims by former US President Donald Trump that she "begged" for a photo together at the G7 summit. Meloni's office stated that the meeting and photo were part of the official summit program and not a personal request. The denial comes amid strained relations between the two leaders.
+
+[3] Trump and Meloni's Relationship Takes a Turn for the Worse
+The relationship between former US President Donald Trump and Italian Prime Minister Giorgia Meloni has taken a turn for the worse, with Trump claiming that Meloni "begged" for a photo together at the G7 summit. Meloni's office has denied the allegation, stating that the meeting and photo were part of the official summit program. The exchange has sparked further tension between the two leaders.
+
+Summary:
+Former US President Donald Trump and Italian Prime Minister Giorgia Meloni are engaged in a public dispute over a photo taken at the recent G7 summit in France. Trump claimed that Meloni "begged" for a photo together, a statement that Meloni's office has strongly denied. The Italian government maintains that the meeting and photo were part of the official summit program and not a personal request. This exchange highlights the deteriorating relationship between the two leaders, who were once seen as having a friendly rapport. The dispute has sparked further tension and raised questions about the future of their political relationship.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.nytimes.com/2026/06/19/world/europe/meloni-trump-italy.html"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Italy Doesn’t ‘Beg,’ Giorgia Meloni Tells Trump</span>
+        <span class="art-meta">
+          rss.nytimes.com · 19/06 16:44
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  
+
+  
+
+  <article class="news-card">
+    <span class="news-number">№ 57</span>
+
+    <h2 class="news-title">400 Drones Create Spectacular Sky-Scoreboard for FIFA Match in Seattle</h2>
+
+    <p class="news-summary">In a first-of-its-kind spectacle, 400 drones took to the Seattle sky on Monday, creating a massive FIFA scoreboard to display the scores of the Egypt vs. Belgium match. The drones, synchronized in a mesmerizing display, lit up the night sky, bringing the excitement of the football tournament directly to the spectators in Seattle, Washington. BBC reporter Max Matza was on the scene to capture the unique event, which left onlookers in awe and inspired comparisons to a giant, aerial party celebration.</p>
+
+    
+    <p class="sources-label">Sources</p>
+    <div class="articles-list">
+      
+      <a class="article-link"
+         href="https://www.bbc.com/news/videos/ced4y9ljye9o?at_medium=RSS&at_campaign=rss"
+         target="_blank"
+         rel="noopener">
+        <span class="art-title">Drones create the first-ever Fifa scoreboard in Seattle sky</span>
+        <span class="art-meta">
+          feeds.bbci.co.uk · 16/06 16:20
+        </span>
+      </a>
+      
+    </div>
+    
+  </article>
+
+  
+
+  
+
+</main>
+
+<footer>
+  <p class="footer-rule">Your curated news diet.</p>
+  <p>Generated by <strong>RSS Dietician</strong> &nbsp;·&nbsp; 22 June 2026, 09:34 UTC</p>
+</footer>
+
+</body>
+</html>
