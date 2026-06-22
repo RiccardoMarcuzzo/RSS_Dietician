@@ -1,0 +1,26 @@
+services:
+  rss-dietician:
+    image: rss-dietician:latest
+    build: .
+    container_name: rss-dietician
+    env_file: .env
+    volumes:
+      - ./newspaper:/app/newspaper
+    restart: unless-stopped
+
+  scheduler:
+    image: mcuadros/ofelia:latest
+    container_name: rss-scheduler
+    depends_on:
+      - rss-dietician
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: daemon --docker
+    restart: unless-stopped
+    labels:
+      ofelia.job-exec.morning.schedule: "0 0 8 * * *"
+      ofelia.job-exec.morning.container: "rss-dietician"
+      ofelia.job-exec.morning.command: "python code/main.py"
+      ofelia.job-exec.evening.schedule: "0 0 18 * * *"
+      ofelia.job-exec.evening.container: "rss-dietician"
+      ofelia.job-exec.evening.command: "python code/main.py"
