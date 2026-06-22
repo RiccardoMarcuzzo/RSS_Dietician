@@ -9,7 +9,8 @@ venv/
 env/
 
 # Output (i digest generati non vanno in git)
-output/
+newspaper/
+model/
 
 # Secrets
 .env
