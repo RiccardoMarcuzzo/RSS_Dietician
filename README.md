@@ -69,11 +69,13 @@ feeds:
 ```
 
 You can also provide your API key in a .env file:
+```
 LLM_MODEL=model-to-use 
 LLM_API_KEY=your-api-key
 LLM_URL=your-model-provider-url
 TELEGRAM_BOT_TOKEN=your-chatbot-token
 TELEGRAM_CHAT_ID=your-chatbot-chat-id
+```
 
 ---
 
