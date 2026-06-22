@@ -1,7 +1,6 @@
 services:
   rss-dietician:
-    image: rss-dietician:latest
-    build: .
+    image: snoopywritesstories/rss-dietician:latest
     container_name: rss-dietician
     env_file: .env
     volumes:

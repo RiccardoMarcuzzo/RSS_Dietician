@@ -21,3 +21,6 @@ newspaper/*.html
 # Editor
 .vscode/
 .idea/
+
+# other
+Dockerfile

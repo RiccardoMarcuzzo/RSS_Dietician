@@ -84,7 +84,7 @@ You can either clone the repository or use a docker container.
 
 ### Cloning the repository
 
-**Requirements:** Python 3.13+
+**Requirements:** Python 3.14+
 
 ```bash
 git clone https://github.com/RiccardoMarcuzzo/RSS_Dietician.git && git lfs pull
