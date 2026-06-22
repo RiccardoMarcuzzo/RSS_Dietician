@@ -8,8 +8,8 @@ build/
 venv/
 env/
 
-# Output (i digest generati non vanno in git)
-newspaper/
+# Output
+newspaper/*.html
 
 # Secrets
 .env
