@@ -5,6 +5,7 @@ services:
     env_file: .env
     volumes:
       - ./newspaper:/app/newspaper
+      - ./config.yml:/app/config.yml
     restart: unless-stopped
 
   scheduler:

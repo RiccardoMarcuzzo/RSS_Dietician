@@ -115,6 +115,7 @@ services:
     env_file: .env
     volumes:
       - ./newspaper:/app/newspaper
+      - ./config.yml:/app/config.yml
     restart: unless-stopped
 
   scheduler:
@@ -143,7 +144,8 @@ LLM_URL=your-model-provider-url
 TELEGRAM_BOT_TOKEN=your-chatbot-token
 TELEGRAM_CHAT_ID=your-chatbot-chat-id
 ```
-Now, run these commands:
+You must also create a .config file. You can copy the .config file in this repo.
+Finally, run these commands:
 ```bash
 cd RSS_Dietician
 docker compose up -d
