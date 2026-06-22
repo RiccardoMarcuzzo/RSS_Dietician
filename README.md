@@ -80,7 +80,7 @@ TELEGRAM_CHAT_ID=your-chatbot-chat-id
 **Requirements:** Python 3.10+
 
 ```bash
-git clone https://github.com/yourusername/rss-digest.git
+git clone https://github.com/RiccardoMarcuzzo/RSS_Dietician.git
 cd rss-digest
 
 pip install -r requirements.txt
