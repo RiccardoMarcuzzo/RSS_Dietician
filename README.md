@@ -11,22 +11,26 @@
 config.yml (feeds + configs)
         │
         ▼
-[1] Parallel RSS feed reading       ← feedparser
+[1] Parallel RSS feed reading      ← feedparser
         │
         ▼
-[2] Article text extraction         ← trafilatura + newspaper3k (fallback)
+[2] Article text extraction        ← trafilatura + newspaper3k (fallback)
         │
         ▼
-[3] Topic clustering                ← HDBSCAN on articles' embeddings
+[3] Topic clustering               ← HDBSCAN on articles' embeddings
         │
         ▼
-[4] Relevance scoring              ← recency + coverage + quality
+[4] LLM summarization per cluster  ← OpenAI / Ollama / Other
         │
         ▼
-[5] LLM summarization per cluster  ← OpenAI / Ollama / Other
+[5] Relevance scoring              ← recency + coverage + quality
         │
         ▼
-[6] HTML digest → open in browser
+[6] HTML digest
+        │
+        ▼
+[Optional] Telegram notification   → send RSS feed directly on phone
+
 ```
 
 ---
