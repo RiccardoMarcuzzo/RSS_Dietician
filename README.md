@@ -79,9 +79,9 @@ TELEGRAM_CHAT_ID=your-chatbot-chat-id
 
 ---
 
-## Three usage modes
+## How to install
 
-### 1 — How to Install
+### Cloning the repository
 
 **Requirements:** Python 3.10+
 
