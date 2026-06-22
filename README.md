@@ -80,23 +80,76 @@ TELEGRAM_CHAT_ID=your-chatbot-chat-id
 ---
 
 ## How to install
+You can either cloning the repository or using a docker container
 
 ### Cloning the repository
 
-**Requirements:** Python 3.10+
+**Requirements:** Python 3.13+
 
 ```bash
-git clone https://github.com/RiccardoMarcuzzo/RSS_Dietician.git
+git clone https://github.com/RiccardoMarcuzzo/RSS_Dietician.git && git lfs pull
 cd rss-digest
 
 pip install -r requirements.txt
 
 # Edit config.yml with your feeds
 # Then run:
-python src/main.py
+python code/main.py
 ```
 
 The HTML is saved in `.newspaper/dietician_YYYY.MM.DD_HH.MM.html`.
+
+### Docker
+
+**Requirements:** Docker + Docker compose
+
+First, create a folder "RSS_Dietician". Then, move inside the folder and copy
+this docker-compose.yml file:
+
+```yaml
+---
+services:
+  rss-dietician:
+    image: rss-dietician:latest
+    build: .
+    container_name: rss-dietician
+    env_file: .env
+    volumes:
+      - ./newspaper:/app/newspaper
+    restart: unless-stopped
+
+  scheduler:
+    image: mcuadros/ofelia:latest
+    container_name: rss-scheduler
+    depends_on:
+      - rss-dietician
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: daemon --docker
+    restart: unless-stopped
+    labels:
+      ofelia.job-exec.morning.schedule: "0 0 8 * * *"
+      ofelia.job-exec.morning.container: "rss-dietician"
+      ofelia.job-exec.morning.command: "python code/main.py"
+      ofelia.job-exec.evening.schedule: "0 0 18 * * *"
+      ofelia.job-exec.evening.container: "rss-dietician"
+      ofelia.job-exec.evening.command: "python code/main.py"
+```
+You can configure the scheduler at your needs. Then, create a .env file with
+the following variables:
+```
+LLM_MODEL=model-to-use 
+LLM_API_KEY=your-api-key
+LLM_URL=your-model-provider-url
+TELEGRAM_BOT_TOKEN=your-chatbot-token
+TELEGRAM_CHAT_ID=your-chatbot-chat-id
+```
+Now, run these commands:
+```bash
+cd RSS_Dietician
+docker compose up -d
+```
+
 
 ## Project structure
 
