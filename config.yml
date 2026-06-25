@@ -30,10 +30,8 @@ telegram:
 # RSS Feed configuration
 # -----------------------
 
-# You must provide an URL from where fetch the feed, and the interests related to that URL
-# Interests are user-generated. You can have how many interests you want per URL, just make sure every interest occupies one line
-# The system will group articles based on their interests, so please ensure there are no typos
-# As for the URL, you can use any RSS/Atom valid URL. 
+# You must provide an URL from where fetch the feed. 
+# You can use any RSS/Atom valid URL. 
 # This means you are not block on just news RSS, but for example you can provide:
 # YouTube: every channel provides a feed: 'https://www.youtube.com/feeds/videos.xml?channel_id=CHANNEL_ID'
 # Reddit: every subreddit has its own feed: 'https://www.reddit.com/r/SUBREDDIT/.rss'
